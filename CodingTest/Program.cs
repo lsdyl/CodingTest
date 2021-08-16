@@ -12,15 +12,15 @@ namespace CodingTest
             Console.WriteLine();
 
             DateTime dt = new DateTime(2021, 8, 15, 23, 0, 0, kind: DateTimeKind.Utc);
-            Console.WriteLine("设置当前时区为：" + dt.Kind + "时间为：" + dt);
+            Console.WriteLine("设置当前时区为：" + dt.Kind + "   时间为：" + dt);
             Console.WriteLine("北京时间：" + dt.AddHours(8));
-            dt = dt.Date.AddHours(-8);  //返回日期的Kind与DateTime相同，所以此时Date的Kind是UTC
-            //Console.WriteLine("dt时间的时区为：" + dt.Kind.ToString() + "时间为：" + dt.ToUniversalTime());
+            dt = dt.AddHours(8).Date;  //返回日期的Kind与DateTime相同，所以此时Date的Kind是UTC
+            Console.WriteLine("北京日期为：" + dt.ToString("yyyy-MM-dd"));
             Console.WriteLine();
-            Console.WriteLine("北京当日0:00的UTC时间：" + dt);
-            Console.WriteLine("当日北京0:00的unix：" + dt.ToUnix());
+            Console.WriteLine("北京当日0:00的UTC时间：" + dt.AddHours(-8));
+            Console.WriteLine("当日北京0:00的unix：" + dt.AddHours(-8).ToUnix());
 
-            Console.WriteLine("当日北京0:00的unix对应的UTC时间为：" +(dt.ToUnix()??0).ToDateTime());
+            Console.WriteLine("当日北京0:00的unix对应的UTC时间为：" +(dt.AddHours(-8).ToUnix() ?? 0).ToDateTime());
             Console.WriteLine("主函数接收参数如下：");
             for (int i = 0; i < args.Length; i++)
             {
