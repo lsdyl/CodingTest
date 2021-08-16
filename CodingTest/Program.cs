@@ -6,6 +6,9 @@ namespace CodingTest
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("当前系统时间"+DateTime.Now);
+            Console.WriteLine("当前UTC系统时间" + DateTime.UtcNow);
+
             var currentUnix =
                 DateTime.UtcNow.AddHours(8).Date.ToUnix(); //服务器时间为Utc时间，先加8小时为北京时间的日期，再设置为0：00，再减8小时变成北京时间0:00的unix
             Console.WriteLine("当前北京日期：" + currentUnix);
