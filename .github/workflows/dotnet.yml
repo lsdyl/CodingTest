@@ -24,4 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: RUN
-      run: dotnet run --project ./codingtest
+      run: dotnet run --project ./CodingTest
